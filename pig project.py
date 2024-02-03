@@ -3,7 +3,7 @@ import random
 def roll():
     min_value = 1
     max_value = 6
-    roll = random.randit(min_value, max_value)
+    roll = random.randint(min_value, max_value)
 
     return roll
 
@@ -21,9 +21,9 @@ while True:
         print("invalid, try again.")
 
 max_score = 50
-players_scores = [0 for _ in range(players)]
+player_scores = [0 for _ in range(players)]
 
-while max(player_scores) < max_score:
+while  max(player_scores) < max_score:
     for player_idx in range(players):
         print("\nplayer number", player_idx + 1, "turn has just started!\n")
         current_score = 0
@@ -47,6 +47,10 @@ while max(player_scores) < max_score:
         player_scores[player_idx] += current_score
         print("your total score is:", player_scores[player_idx])
 
+    max_score = max(player_scores)
+    winning_idx = player_scores.index(max_score)
+    print("player number", winning_idx + 1,
+          "is the winner with a score of:", max_score)
 
 
 
